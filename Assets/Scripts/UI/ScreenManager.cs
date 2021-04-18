@@ -10,6 +10,9 @@ public class ScreenManager : MonoBehaviour
     {
         App.screenManager = this;
         screens = GetComponentsInChildren<ScreenBase>(true);
+        App.screenManager.Show<MenuScreen>();
+        App.screenManager.Hide<InGameScreen>();
+        App.screenManager.Hide<FailScreen>();
     }
 
     public void Show<T>()

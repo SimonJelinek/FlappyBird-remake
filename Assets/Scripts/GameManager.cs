@@ -7,12 +7,9 @@ public class GameManager : MonoBehaviour
     public GameObject obstacle;
     public GameObject player;
 
-    void Start()
+    void Awake()
     {
         App.gameManager = this;
-        App.screenManager.Show<MenuScreen>();
-        App.screenManager.Hide<InGameScreen>();
-        App.screenManager.Hide<FailScreen>();
     }
 
     private void Update()
