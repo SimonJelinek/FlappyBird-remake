@@ -8,6 +8,8 @@ public class GameManager : MonoBehaviour
     public GameObject player;
 
     float time = 0;
+    public bool canspawn = true;
+
     void Awake()
     {
         App.gameManager = this;
@@ -15,12 +17,15 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        time += Time.deltaTime;
-
-        if (time > 0.75f)
+        if (canspawn)
         {
-            PickRandomObstacle(Random.Range(-2.15f, 0f));
-            time = 0;
+            time += Time.deltaTime;
+
+            if (time > 0.75f)
+            {
+                PickRandomObstacle(Random.Range(-2.15f, 0f));
+                time = 0;
+            }
         }
     }
 
@@ -32,5 +37,11 @@ public class GameManager : MonoBehaviour
     public void PickRandomObstacle( float yPos)
     {
         Instantiate(obstacle, new Vector3(5, yPos, 0), Quaternion.identity);
+    }
+
+    public void GameOver()
+    {
+        canspawn = false;
+        App.screenManager.Show<FailScreen>();
     }
 }

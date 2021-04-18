@@ -10,7 +10,7 @@ public class ObstacleBehavior : MonoBehaviour
     {
         transform.position += new Vector3(-speed, 0,0);
 
-        if (transform.position.x <= -3.56f)
+        if (transform.position.x <= -3.56f || App.gameManager.canspawn==false)
         {
             Destroy(gameObject);
         }

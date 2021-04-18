@@ -28,4 +28,13 @@ public class PlayerBehavior : MonoBehaviour
             jump = false;
         }
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Obstacle")
+        {           
+            App.gameManager.GameOver();
+            Destroy(gameObject);
+        }
+    }
 }
