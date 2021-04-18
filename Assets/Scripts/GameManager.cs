@@ -13,6 +13,7 @@ public class GameManager : MonoBehaviour
     void Awake()
     {
         App.gameManager = this;
+        RestartStartGame();
     }
 
     private void Update()
@@ -43,5 +44,12 @@ public class GameManager : MonoBehaviour
     {
         canspawn = false;
         App.screenManager.Show<FailScreen>();
+    }
+
+    public void RestartStartGame()
+    {
+        App.screenManager.Hide<FailScreen>();
+        canspawn = true;
+        InstantiateMap();
     }
 }

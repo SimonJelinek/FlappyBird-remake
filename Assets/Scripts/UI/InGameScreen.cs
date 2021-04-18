@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class InGameScreen : ScreenBase
 {
-    void Start()
+    /*void Start()
     {
         App.gameManager.InstantiateMap();
-    }
+    }*/
 }

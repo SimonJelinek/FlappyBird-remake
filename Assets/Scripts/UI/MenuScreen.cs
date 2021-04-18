@@ -8,6 +8,6 @@ public class MenuScreen : ScreenBase
     {
         App.screenManager.Show<InGameScreen>();
         Hide();
-        //App.gameManager.InstantiateMap(); 
+        App.gameManager.RestartStartGame();
     }
 }

@@ -7,6 +7,13 @@ public class FailScreen : ScreenBase
 {
     public void ReturnToMenu()
     {
-        SceneManager.LoadScene("MainScene");
+        App.screenManager.Hide<FailScreen>();
+        App.screenManager.Hide<InGameScreen>();
+        App.screenManager.Show<MenuScreen>();
+    }
+
+    public void RestartGame()
+    {
+        App.gameManager.RestartStartGame();
     }
 }
