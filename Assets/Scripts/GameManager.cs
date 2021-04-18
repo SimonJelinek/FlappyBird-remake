@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
     public GameObject obstacle;
     public GameObject player;
 
+    float time = 0;
     void Awake()
     {
         App.gameManager = this;
@@ -14,9 +15,12 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        time += Time.deltaTime;
+
+        if (time > 0.75f)
         {
             PickRandomObstacle(Random.Range(-2.15f, 0f));
+            time = 0;
         }
     }
 
