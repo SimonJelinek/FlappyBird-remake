@@ -51,6 +51,7 @@ public class GameManager : MonoBehaviour
 
     public void GameOver()
     {
+        scoreTxt.text = "";
         canspawn = false;
         App.screenManager.Show<FailScreen>();
         failScoreTxt.text = score.ToString();
