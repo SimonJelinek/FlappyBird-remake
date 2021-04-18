@@ -31,7 +31,7 @@ public class GameManager : MonoBehaviour
         {
             time += Time.deltaTime;
 
-            if (time > 0.75f)
+            if (time > 1.5f)
             {
                 PickRandomObstacle(Random.Range(-2.15f, 0f));
                 time = 0;
