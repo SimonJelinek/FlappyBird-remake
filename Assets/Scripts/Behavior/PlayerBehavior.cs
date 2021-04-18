@@ -39,6 +39,7 @@ public class PlayerBehavior : MonoBehaviour
 
         if (collision.gameObject.tag == "Coin")
         {
+            Debug.Log("collison");
             App.gameManager.AddScore(1);
         }
     }
