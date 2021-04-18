@@ -36,5 +36,10 @@ public class PlayerBehavior : MonoBehaviour
             App.gameManager.GameOver();
             Destroy(gameObject);
         }
+
+        if (collision.gameObject.tag == "Coin")
+        {
+            App.gameManager.AddScore(1);
+        }
     }
 }

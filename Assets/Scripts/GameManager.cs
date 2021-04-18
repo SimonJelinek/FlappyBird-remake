@@ -1,14 +1,21 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class GameManager : MonoBehaviour
-{
+{   
+    [Header("Objects")]
     public GameObject obstacle;
     public GameObject player;
 
+    [Header("UI")]
+    public TMP_Text scoreTxt;
+
+    [Header("Numbers")]
     float time = 0;
     public bool canspawn = true;
+    float score = 0;
 
     void Awake()
     {
@@ -49,7 +56,15 @@ public class GameManager : MonoBehaviour
     public void RestartStartGame()
     {
         App.screenManager.Hide<FailScreen>();
+        score = 0;
+        scoreTxt.text = score.ToString();
         canspawn = true;
         InstantiateMap();
+    }
+
+    public void AddScore(float count)
+    {
+        score += count;
+        scoreTxt.text = score.ToString();
     }
 }
