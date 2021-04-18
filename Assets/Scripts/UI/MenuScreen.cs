@@ -2,17 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MenuScreen : MonoBehaviour
+public class MenuScreen : ScreenBase
 {
-    // Start is called before the first frame update
-    void Start()
+    public void OnPlayClick()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        App.screenManager.Show<InGameScreen>();
+        Hide();
     }
 }
