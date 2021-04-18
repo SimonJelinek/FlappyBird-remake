@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    public GameObject obstacle;
     public GameObject player;
-    public Transform parent;
 
     void Start()
     {
@@ -15,8 +15,21 @@ public class GameManager : MonoBehaviour
         App.screenManager.Hide<FailScreen>();
     }
 
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            PickRandomObstacle(Random.Range(-2.15f, 0f));
+        }
+    }
+
     public void InstantiateMap()
     {
-        Instantiate(player, new Vector3(), Quaternion.identity, parent);
+        Instantiate(player, new Vector3(0,0,0), Quaternion.identity);
+    }
+
+    public void PickRandomObstacle( float yPos)
+    {
+        Instantiate(obstacle, new Vector3(5, yPos, 0), Quaternion.identity);
     }
 }
