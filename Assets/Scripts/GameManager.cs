@@ -11,6 +11,8 @@ public class GameManager : MonoBehaviour
 
     [Header("UI")]
     public TMP_Text scoreTxt;
+    public TMP_Text failScoreTxt;
+    public TMP_Text failHighScoreTxt;
 
     [Header("Numbers")]
     float time = 0;
@@ -51,6 +53,15 @@ public class GameManager : MonoBehaviour
     {
         canspawn = false;
         App.screenManager.Show<FailScreen>();
+        failScoreTxt.text = score.ToString();
+
+        int highscore = PlayerPrefs.GetInt("highscore");
+
+        if (score > highscore)
+        {
+            PlayerPrefs.SetInt("highscore", (int)score);
+        }
+        failHighScoreTxt.text = PlayerPrefs.GetInt("highscore").ToString();
     }
 
     public void RestartStartGame()
