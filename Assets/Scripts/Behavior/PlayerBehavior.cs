@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerBehavior : MonoBehaviour
 {
     Rigidbody2D rb;
+    bool jump = false;
 
     void Start()
     {
@@ -15,7 +16,16 @@ public class PlayerBehavior : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            rb.velocity = new Vector2(0,5);
+            jump = true;
+        }
+    }
+
+    void FixedUpdate()
+    {
+        if (jump)
+        {
+            rb.velocity = new Vector2(0, 5);
+            jump = false;
         }
     }
 }
