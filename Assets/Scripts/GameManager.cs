@@ -13,6 +13,7 @@ public class GameManager : MonoBehaviour
     public TMP_Text scoreTxt;
     public TMP_Text failScoreTxt;
     public TMP_Text failHighScoreTxt;
+    public AudioSource[] sounds;
 
     [Header("Numbers")]
     float time = 0;
@@ -78,5 +79,11 @@ public class GameManager : MonoBehaviour
     {
         score += count;
         scoreTxt.text = score.ToString();
+        PlaySound(0);
+    }
+
+    public void PlaySound(int index)
+    {
+        sounds[index].Play();
     }
 }
