@@ -37,11 +37,11 @@ public class SettingsScreen : ScreenBase
 
         if (sound)
         {
-            PlayerPrefs.SetInt("soundSet", 1);
+            PlayerPrefs.SetInt("soundSet", 0);
         }
         else
         {
-            PlayerPrefs.SetInt("soundSet", 0);
+            PlayerPrefs.SetInt("soundSet", 1);
         }
 
         soundButton.image.sprite = soundSprites[PlayerPrefs.GetInt("soundSet")];

@@ -14,6 +14,7 @@ public class ScreenManager : MonoBehaviour
         App.screenManager.Hide<InGameScreen>();
         App.screenManager.Hide<FailScreen>();
         PlayerPrefs.SetString("fall", "false");
+        PlayerPrefs.SetInt("soundset", 0);
     }
 
     public void Show<T>()
