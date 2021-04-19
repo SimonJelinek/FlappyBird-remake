@@ -13,6 +13,7 @@ public class ScreenManager : MonoBehaviour
         App.screenManager.Show<MenuScreen>();
         App.screenManager.Hide<InGameScreen>();
         App.screenManager.Hide<FailScreen>();
+        PlayerPrefs.SetString("fall", "false");
     }
 
     public void Show<T>()

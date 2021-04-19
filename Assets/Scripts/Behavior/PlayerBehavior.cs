@@ -35,12 +35,19 @@ public class PlayerBehavior : MonoBehaviour
         {           
             App.gameManager.GameOver();
             Destroy(gameObject);
+            PlayerPrefs.SetString("fall", "aaa");
         }
 
         if (collision.gameObject.tag == "Coin")
         {
-            Debug.Log("collison");
-            App.gameManager.AddScore(1);
+            if (PlayerPrefs.GetString("fall") == "false")
+            {
+                App.gameManager.AddScore(0.5f);
+            }
+            else
+            {
+                App.gameManager.AddScore(1);
+            }
         }
     }
 }
