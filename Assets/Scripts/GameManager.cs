@@ -56,6 +56,7 @@ public class GameManager : MonoBehaviour
         canspawn = false;
         App.screenManager.Show<FailScreen>();
         failScoreTxt.text = score.ToString();
+        PlaySound(2);
 
         int highscore = PlayerPrefs.GetInt("highscore");
 
