@@ -84,6 +84,9 @@ public class GameManager : MonoBehaviour
 
     public void PlaySound(int index)
     {
-        sounds[index].Play();
+        if (PlayerPrefs.GetInt("soundSet")==1)
+        {
+            sounds[index].Play();
+        }
     }
 }

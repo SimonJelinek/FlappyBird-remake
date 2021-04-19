@@ -2,11 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 public class SettingsScreen : ScreenBase
 {
     public TMP_Text highscoreTxt;
+    public Button soundButton;
+    public Sprite[] soundSprites;
+
     bool opened = false;
+    bool sound = true;
 
     public void OnSettingClick()
     {
@@ -22,6 +27,24 @@ public class SettingsScreen : ScreenBase
         }
 
         UpdateTxt();
+
+        soundButton.image.sprite = soundSprites[PlayerPrefs.GetInt("soundSet")];
+    }
+
+    public void OnSoundClick()
+    {
+        sound = !sound;
+
+        if (sound)
+        {
+            PlayerPrefs.SetInt("soundSet", 1);
+        }
+        else
+        {
+            PlayerPrefs.SetInt("soundSet", 0);
+        }
+
+        soundButton.image.sprite = soundSprites[PlayerPrefs.GetInt("soundSet")];
     }
 
     void UpdateTxt()
